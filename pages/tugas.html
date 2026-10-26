@@ -1,0 +1,65 @@
+<div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+  <h2 class="h5 heading mb-0">Daftar Tugas &amp; Alamat Penjemputan</h2>
+  <div class="btn-group" role="group" aria-label="Filter status">
+    <button type="button" class="btn btn-sm btn-primary-app filter-btn" data-filter="semua">Semua</button>
+    <button type="button" class="btn btn-sm btn-secondary-app filter-btn" data-filter="Menunggu">Menunggu</button>
+    <button type="button" class="btn btn-sm btn-secondary-app filter-btn" data-filter="Selesai">Selesai</button>
+  </div>
+</div>
+
+<table class="tbl-tugas">
+  <thead>
+    <tr><th>ID</th><th>Warga &amp; Alamat</th><th>Jenis</th><th>Catatan</th><th>Status</th><th>Aksi</th></tr>
+  </thead>
+  <tbody id="tbodyTugas"></tbody>
+</table>
+<p class="text-muted small mt-2">Tombol <strong>Ubah Status</strong> hanya simulasi tampilan. Pendataan resmi dilakukan lewat <em>Form Pendataan</em>.</p>
+
+<hr class="my-4">
+
+<div class="row g-3">
+  <!-- Simulator pendapatan -->
+  <div class="col-12 col-lg-7">
+    <div class="sub-card h-100">
+      <h3 class="h6 heading">Simulator Pendapatan Bersih</h3>
+      <div class="row g-2">
+        <div class="col-12 col-sm-4">
+          <label class="form-label" for="simJenis">Jenis</label>
+          <select id="simJenis" class="form-select"></select>
+        </div>
+        <div class="col-6 col-sm-4">
+          <label class="form-label" for="simKondisi">Kondisi</label>
+          <select id="simKondisi" class="form-select">
+            <option value="kotor">Kotor</option>
+            <option value="bersih">Bersih</option>
+          </select>
+        </div>
+        <div class="col-6 col-sm-4">
+          <label class="form-label" for="simBerat">Berat (kg)</label>
+          <input type="number" id="simBerat" class="form-control" min="0" step="0.1" value="1">
+        </div>
+      </div>
+      <dl class="row mt-3 mb-0">
+        <dt class="col-7">Harga per kg</dt><dd class="col-5 text-end" id="simHarga">-</dd>
+        <dt class="col-7">Total harga</dt><dd class="col-5 text-end" id="simTotal">-</dd>
+        <dt class="col-7">Potongan jemput (flat)</dt><dd class="col-5 text-end text-danger" id="simPotong">-</dd>
+        <dt class="col-7">Pendapatan bersih</dt><dd class="col-5 text-end fw-bold" id="simBersih">-</dd>
+      </dl>
+    </div>
+  </div>
+
+  <!-- Simulator login -->
+  <div class="col-12 col-lg-5">
+    <div class="sub-card h-100">
+      <h3 class="h6 heading">Simulasi Keamanan Login</h3>
+      <p class="small mb-2">Akun diblokir setelah <strong>5 kali</strong> gagal login berturut-turut (<code>failed_attempts</code>). Kata sandi benar untuk simulasi: <code>kurir123</code>.</p>
+      <input type="password" id="simPass" class="form-control mb-2" placeholder="Coba kata sandi">
+      <div class="d-flex gap-2 mb-2">
+        <button type="button" id="btnSimLogin" class="btn btn-sm btn-primary-app">Masuk</button>
+        <button type="button" id="btnSimReset" class="btn btn-sm btn-secondary-app">Reset</button>
+      </div>
+      <div>Gagal berturut-turut: <strong id="simGagal">0</strong> / 5</div>
+      <div id="simPesan" class="small mt-1"></div>
+    </div>
+  </div>
+</div>

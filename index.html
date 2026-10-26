@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NabungSampah - Kurir Penjemputan</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="app-header">
+  <div class="container d-flex align-items-center justify-content-between">
+    <a href="#beranda" class="brand" data-page="beranda">
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14M10 11v5M14 11v5"/></svg>
+      <span>
+        <strong>NabungSampah</strong>
+        <small>Kurir Penjemputan &middot; Puri Indah</small>
+      </span>
+    </a>
+    <button class="btn-menu d-md-none" id="btnMenu" aria-label="Buka menu" aria-expanded="false">&#9776;</button>
+    <nav class="main-nav d-none d-md-flex" id="mainNav">
+      <a href="#beranda" data-page="beranda" class="nav-link-app active">Beranda</a>
+      <a href="#tugas" data-page="pages/tugas.html" class="nav-link-app">Daftar Tugas</a>
+      <a href="#form" data-page="pages/form.html" class="nav-link-app">Form Pendataan</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container py-3 py-md-4">
+
+  <!-- Ringkasan antrean harian (2.a) -->
+  <section id="ringkasan" class="mb-3">
+    <div class="d-flex justify-content-between align-items-end mb-2">
+      <div>
+        <h1 class="h4 heading mb-0">Halo, Kurir!</h1>
+        <small class="text-muted" id="tanggalHariIni"></small>
+      </div>
+      <span class="badge-status" id="badgeKurir">Kurir Aktif</span>
+    </div>
+    <div class="row g-2 g-md-3">
+      <div class="col-6 col-md-3"><div class="stat-card"><span class="stat-label">Total Tugas</span><span class="stat-value" id="statTotal">0</span></div></div>
+      <div class="col-6 col-md-3"><div class="stat-card"><span class="stat-label">Menunggu</span><span class="stat-value text-warning-emphasis" id="statMenunggu">0</span></div></div>
+      <div class="col-6 col-md-3"><div class="stat-card"><span class="stat-label">Selesai</span><span class="stat-value text-success" id="statSelesai">0</span></div></div>
+      <div class="col-6 col-md-3"><div class="stat-card"><span class="stat-label">Pendapatan Bersih</span><span class="stat-value" id="statBersih">Rp0</span></div></div>
+    </div>
+  </section>
+
+  <!-- Area konten dimuat dengan Ajax -->
+  <section id="content" class="content-box" aria-live="polite">
+    <div class="text-center text-muted py-5">Memuat...</div>
+  </section>
+</main>
+
+<!-- Bottom navigation (mobile-first) -->
+<nav class="bottom-nav d-md-none">
+  <a href="#beranda" data-page="beranda" class="nav-link-app active">Beranda</a>
+  <a href="#tugas" data-page="pages/tugas.html" class="nav-link-app">Tugas</a>
+  <a href="#form" data-page="pages/form.html" class="nav-link-app">Pendataan</a>
+</nav>
+
+<footer class="app-footer text-center">
+  <small>&copy; 2026 NabungSampah &ndash; Kelompok 4 &middot; Lukman Hakim (25091397029)</small>
+</footer>
+
+<!-- Modal popup global -->
+<div class="modal-overlay" id="popup" hidden>
+  <div class="modal-box" role="dialog" aria-modal="true">
+    <div class="modal-icon" id="popupIcon"></div>
+    <h2 class="h5 heading" id="popupTitle"></h2>
+    <div id="popupBody" class="mb-3"></div>
+    <button class="btn btn-primary-app w-100" id="popupOk">OK</button>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
